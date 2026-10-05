@@ -15,64 +15,411 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f4f6;
+    background: #f5f5f5;
     color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header {
-    height: 70px;
-    background: #ffffff;
+    height: 72px;
+    background: white;
     border-bottom: 1px solid #ddd;
+
     display: flex;
     align-items: center;
-    padding: 0 25px;
-    gap: 30px;
+
+    padding: 0 22px;
+
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
 }
 
+/* WEBEX LOGO */
+
 .logo {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 900;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
 
 .logo span {
     color: #ed1025;
 }
 
-nav {
+/* RIGHT SIDE HEADER */
+
+.header-right {
+    margin-left: auto;
+
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 10px;
 }
 
-nav button {
+/* LOGIN */
+
+.login-top {
     border: none;
-    background: transparent;
-    padding: 12px 15px;
+    background: #111;
+    color: white;
+
+    padding: 11px 20px;
+
     border-radius: 10px;
+
     font-size: 15px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
-nav button:hover {
-    background: #eeeeee;
+.login-top:hover {
+    background: #333;
 }
 
-.login-button {
-    margin-left: auto;
-    background: #111 !important;
-    color: white;
+/* MENU BUTTON */
+
+.menu-button {
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid #ddd;
+    background: white;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* HERO */
+.menu-button:hover {
+    background: #f1f1f1;
+}
+
+/* WEBEX MENU ICON */
+
+.menu-lines {
+    width: 21px;
+}
+
+.menu-lines div {
+    height: 3px;
+    background: #111;
+    margin: 4px 0;
+    border-radius: 3px;
+}
+
+
+/* =========================
+   RIGHT MENU
+========================= */
+
+.menu-panel {
+    position: fixed;
+
+    top: 0;
+    right: -340px;
+
+    width: 320px;
+    max-width: 90vw;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 100;
+
+    box-shadow: -8px 0 30px rgba(0,0,0,.18);
+
+    transition: right .3s ease;
+
+    padding: 25px;
+}
+
+.menu-panel.open {
+    right: 0;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.menu-title {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.close-button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: #eee;
+
+    border-radius: 10px;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: #ddd;
+}
+
+/* MENU LINKS */
+
+.menu-link {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.menu-link:hover {
+    background: #f1f1f1;
+}
+
+/* CUSTOM ICONS */
+
+.webex-icon {
+    width: 24px;
+    height: 24px;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+/* GAME ICON */
+
+.icon-game::before {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 14px;
+
+    left: 2px;
+    top: 5px;
+
+    border: 2px solid #111;
+
+    border-radius: 5px;
+
+    transform: rotate(-4deg);
+}
+
+.icon-game::after {
+    content: "+";
+
+    position: absolute;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    left: 5px;
+    top: 3px;
+}
+
+/* STUDIO ICON */
+
+.icon-studio::before {
+    content: "";
+
+    position: absolute;
+
+    width: 19px;
+    height: 19px;
+
+    border: 2px solid #111;
+
+    left: 2px;
+    top: 2px;
+
+    transform: rotate(45deg);
+
+    border-radius: 4px;
+}
+
+.icon-studio::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #ed1025;
+
+    left: 9px;
+    top: 9px;
+
+    border-radius: 2px;
+}
+
+/* AVATAR ICON */
+
+.icon-avatar::before {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border: 2px solid #111;
+
+    border-radius: 50%;
+
+    left: 6px;
+    top: 1px;
+}
+
+.icon-avatar::after {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 9px;
+
+    border: 2px solid #111;
+
+    border-radius: 10px 10px 5px 5px;
+
+    left: 3px;
+    bottom: 1px;
+}
+
+/* SHOP ICON */
+
+.icon-shop::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 14px;
+
+    border: 2px solid #111;
+
+    left: 3px;
+    top: 7px;
+
+    border-radius: 3px;
+}
+
+.icon-shop::after {
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+    height: 6px;
+
+    border: 2px solid #111;
+
+    border-bottom: none;
+
+    left: 7px;
+    top: 2px;
+
+    border-radius: 6px 6px 0 0;
+}
+
+/* COIN ICON */
+
+.icon-coin::before {
+    content: "W";
+
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    border: 2px solid #111;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    left: 1px;
+    top: 1px;
+}
+
+/* =========================
+   MENU BACKDROP
+========================= */
+
+.menu-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.35);
+
+    z-index: 90;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity .3s ease;
+}
+
+.menu-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
-    background: linear-gradient(135deg, #111 0%, #242424 100%);
+    background:
+        radial-gradient(circle at 80% 20%, #3b3b3b 0%, transparent 35%),
+        linear-gradient(135deg, #0d0d0d, #242424);
+
     color: white;
-    padding: 70px 30px;
+
+    padding: 85px 25px;
 }
 
 .hero-content {
@@ -81,8 +428,13 @@ nav button:hover {
 }
 
 .hero h1 {
-    font-size: clamp(42px, 8vw, 80px);
-    margin-bottom: 15px;
+    font-size: clamp(45px, 9vw, 90px);
+
+    line-height: .92;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 25px;
 }
 
 .hero h1 span {
@@ -90,25 +442,38 @@ nav button:hover {
 }
 
 .hero p {
-    font-size: 20px;
     color: #ccc;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
     max-width: 650px;
-    line-height: 1.5;
 }
+
+/* HERO BUTTONS */
 
 .hero-buttons {
     display: flex;
-    gap: 12px;
-    margin-top: 30px;
+
     flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 32px;
 }
 
-.hero-buttons button {
+.hero-button {
     border: none;
-    padding: 15px 25px;
-    border-radius: 12px;
+
+    padding: 15px 23px;
+
+    border-radius: 11px;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -122,45 +487,88 @@ nav button:hover {
     color: #111;
 }
 
-/* CONTENT */
+/* LOGIN HERO */
+
+.login-hero {
+    background: transparent;
+
+    border: 1px solid #666;
+
+    color: white;
+}
+
+.login-hero:hover {
+    background: white;
+    color: #111;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
 .content {
     max-width: 1100px;
+
     margin: auto;
-    padding: 45px 25px;
+
+    padding: 50px 25px;
 }
 
 .section-title {
     font-size: 28px;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
 }
 
-/* GAME CARDS */
+
+/* =========================
+   GAME CARDS
+========================= */
+
 .games {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
     gap: 20px;
 }
 
 .game-card {
     background: white;
+
     border-radius: 15px;
+
     overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
 }
 
 .game-image {
-    height: 130px;
-    background: linear-gradient(135deg, #222, #555);
+    height: 140px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #444
+        );
+
+    color: white;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
+
+    font-size: 24px;
+
+    font-weight: 900;
 }
 
 .game-info {
-    padding: 15px;
+    padding: 17px;
 }
 
 .game-info h3 {
@@ -169,26 +577,63 @@ nav button:hover {
 
 .game-info p {
     color: #777;
+
     font-size: 14px;
 }
 
-/* FEATURE CARDS */
+
+/* =========================
+   FEATURES
+========================= */
+
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
     gap: 18px;
+
     margin-top: 45px;
 }
 
 .feature {
     background: white;
+
     padding: 25px;
+
     border-radius: 15px;
 }
 
 .feature-icon {
-    font-size: 35px;
-    margin-bottom: 12px;
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #111;
+
+    margin-bottom: 15px;
+
+    position: relative;
+}
+
+/* Red WEBEX accent */
+
+.feature-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    background: #ed1025;
+
+    border-radius: 2px;
+
+    right: 7px;
+    bottom: 7px;
 }
 
 .feature h3 {
@@ -197,63 +642,70 @@ nav button:hover {
 
 .feature p {
     color: #666;
+
     line-height: 1.5;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     background: #111;
-    color: #aaa;
+
+    color: #888;
+
     text-align: center;
-    padding: 30px;
-    margin-top: 30px;
+
+    padding: 35px;
 }
 
 footer strong {
     color: white;
 }
 
-/* MOBILE */
-@media (max-width: 700px) {
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
 
     header {
-        height: auto;
-        min-height: 65px;
-        padding: 12px;
-        flex-wrap: wrap;
-        gap: 8px;
+        padding: 0 14px;
     }
 
     .logo {
-        font-size: 28px;
+        font-size: 29px;
     }
 
-    nav {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    nav button {
-        white-space: nowrap;
-    }
-
-    .login-button {
-        margin-left: auto;
+    .login-top {
+        padding: 10px 14px;
     }
 
     .hero {
-        padding: 55px 22px;
+        padding: 65px 20px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
     }
 
     .content {
-        padding: 35px 18px;
+        padding: 40px 18px;
     }
+
 }
 </style>
 </head>
 
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -261,46 +713,166 @@ footer strong {
         WEB<span>EX</span>
     </div>
 
-    <nav>
-        <button onclick="showMessage('Games')">🎮 Games</button>
-        <button onclick="showMessage('Studio')">🛠️ Studio</button>
-        <button onclick="showMessage('Avatar')">👤 Avatar</button>
-        <button onclick="showMessage('Shop')">🛒 Shop</button>
-    </nav>
+    <div class="header-right">
 
-    <button class="login-button" onclick="showMessage('Login')">
-        Log In
-    </button>
+        <button
+            class="login-top"
+            onclick="login()">
+            Log In
+        </button>
+
+        <button
+            class="menu-button"
+            onclick="openMenu()"
+            aria-label="Open menu">
+
+            <div class="menu-lines">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+        </button>
+
+    </div>
 
 </header>
 
+
+<!-- =========================
+     RIGHT MENU
+========================= -->
+
+<div
+    id="backdrop"
+    class="menu-backdrop"
+    onclick="closeMenu()">
+</div>
+
+
+<aside
+    id="menu"
+    class="menu-panel">
+
+    <div class="menu-header">
+
+        <div class="menu-title">
+            WEBEX
+        </div>
+
+        <button
+            class="close-button"
+            onclick="closeMenu()">
+            ×
+        </button>
+
+    </div>
+
+
+    <button
+        class="menu-link"
+        onclick="goTo('Games')">
+
+        <div class="webex-icon icon-game"></div>
+
+        Games
+
+    </button>
+
+
+    <button
+        class="menu-link"
+        onclick="goTo('Studio')">
+
+        <div class="webex-icon icon-studio"></div>
+
+        Studio
+
+    </button>
+
+
+    <button
+        class="menu-link"
+        onclick="goTo('Avatar')">
+
+        <div class="webex-icon icon-avatar"></div>
+
+        Avatar
+
+    </button>
+
+
+    <button
+        class="menu-link"
+        onclick="goTo('Shop')">
+
+        <div class="webex-icon icon-shop"></div>
+
+        Shop
+
+    </button>
+
+
+    <button
+        class="menu-link"
+        onclick="goTo('WebCoins')">
+
+        <div class="webex-icon icon-coin"></div>
+
+        WebCoins
+
+    </button>
+
+</aside>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
         <h1>
-            Make.<br>
-            Play.<br>
+            MAKE.<br>
+            PLAY.<br>
             <span>WEBEX.</span>
         </h1>
 
         <p>
-            Play games made by the community,
-            create your own games, customize your avatar,
-            and build your own world.
+            Create games, play games made by the
+            community, customize your avatar, and
+            build your own worlds.
         </p>
+
 
         <div class="hero-buttons">
 
-            <button class="play-button"
-                    onclick="showMessage('Games')">
-                🎮 Play Games
+            <button
+                class="hero-button play-button"
+                onclick="goTo('Games')">
+
+                Play Games
+
             </button>
 
-            <button class="studio-button"
-                    onclick="showMessage('Studio')">
-                🛠️ Open Studio
+
+            <button
+                class="hero-button studio-button"
+                onclick="goTo('Studio')">
+
+                Open Studio
+
+            </button>
+
+
+            <button
+                class="hero-button login-hero"
+                onclick="login()">
+
+                Log In
+
             </button>
 
         </div>
@@ -310,82 +882,149 @@ footer strong {
 </section>
 
 
+<!-- =========================
+     GAMES
+========================= -->
+
 <main class="content">
 
     <h2 class="section-title">
-        🎮 Featured Games
+        Featured Games
     </h2>
+
 
     <div class="games">
 
         <div class="game-card">
+
             <div class="game-image">
                 GAME 1
             </div>
+
             <div class="game-info">
-                <h3>Coming Soon</h3>
-                <p>Games created by WEBEX users.</p>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    Games created by WEBEX users.
+                </p>
+
             </div>
+
         </div>
 
+
         <div class="game-card">
+
             <div class="game-image">
                 GAME 2
             </div>
+
             <div class="game-info">
-                <h3>Coming Soon</h3>
-                <p>Discover new games.</p>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    Discover new games.
+                </p>
+
             </div>
+
         </div>
 
+
         <div class="game-card">
+
             <div class="game-image">
                 GAME 3
             </div>
+
             <div class="game-info">
-                <h3>Coming Soon</h3>
-                <p>Play something new.</p>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    Play something new.
+                </p>
+
             </div>
+
         </div>
 
     </div>
 
 
+    <!-- FEATURES -->
+
     <div class="features">
 
         <div class="feature">
-            <div class="feature-icon">🛠️</div>
-            <h3>Create Games</h3>
+
+            <div class="feature-icon"></div>
+
+            <h3>
+                Create Games
+            </h3>
+
             <p>
-                Build your own games using the WEBEX Studio
-                and JavaScript.
+                Build your own games using WEBEX
+                Studio and JavaScript.
             </p>
+
         </div>
 
-        <div class="feature">
-            <div class="feature-icon">👤</div>
-            <h3>Your Avatar</h3>
-            <p>
-                Customize your own block-style WEBEX avatar.
-            </p>
-        </div>
 
         <div class="feature">
-            <div class="feature-icon">💰</div>
-            <h3>WebCoins</h3>
+
+            <div class="feature-icon"></div>
+
+            <h3>
+                Your Avatar
+            </h3>
+
             <p>
-                Earn and spend WebCoins on items and
-                other things throughout WEBEX.
+                Customize your own block-style
+                WEBEX avatar.
             </p>
+
         </div>
 
+
         <div class="feature">
-            <div class="feature-icon">🌎</div>
-            <h3>Community</h3>
+
+            <div class="feature-icon"></div>
+
+            <h3>
+                WebCoins
+            </h3>
+
             <p>
-                Play games and discover creations from
-                other WEBEX users.
+                Earn and spend WebCoins throughout
+                WEBEX.
             </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon"></div>
+
+            <h3>
+                Community
+            </h3>
+
+            <p>
+                Discover games created by other
+                WEBEX players.
+            </p>
+
         </div>
 
     </div>
@@ -394,17 +1033,71 @@ footer strong {
 
 
 <footer>
-    <strong>WEBEX</strong> — The community game platform.
+
+    <strong>WEBEX</strong>
+    — The community game platform.
+
 </footer>
 
 
 <script>
 
-function showMessage(page) {
+/* OPEN MENU */
+
+function openMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .add("open");
+
+    document
+        .getElementById("backdrop")
+        .classList
+        .add("open");
+
+}
+
+
+/* CLOSE MENU */
+
+function closeMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .remove("open");
+
+    document
+        .getElementById("backdrop")
+        .classList
+        .remove("open");
+
+}
+
+
+/* NAVIGATION */
+
+function goTo(page) {
+
+    closeMenu();
 
     alert(
-        page + " is coming soon!\n\n" +
+        page +
+        " is coming soon!\n\n" +
         "We're building WEBEX."
+    );
+
+}
+
+
+/* LOGIN */
+
+function login() {
+
+    alert(
+        "WEBEX Login\n\n" +
+        "The account system is coming next!"
     );
 
 }
