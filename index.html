@@ -1,10 +1,415 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>WEBEX</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WEBEX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f6;
+    color: #111;
+}
+
+/* HEADER */
+header {
+    height: 70px;
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: #ed1025;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: #eeeeee;
+}
+
+.login-button {
+    margin-left: auto;
+    background: #111 !important;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #111 0%, #242424 100%);
+    color: white;
+    padding: 70px 30px;
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 80px);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #ed1025;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #ccc;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons button {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.play-button {
+    background: #ed1025;
+    color: white;
+}
+
+.studio-button {
+    background: white;
+    color: #111;
+}
+
+/* CONTENT */
+.content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 25px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* GAME CARDS */
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+.game-image {
+    height: 130px;
+    background: linear-gradient(135deg, #222, #555);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-info h3 {
+    margin-bottom: 6px;
+}
+
+.game-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* FEATURE CARDS */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 45px;
+}
+
+.feature {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.feature-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+footer strong {
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+    header {
+        height: auto;
+        min-height: 65px;
+        padding: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    nav button {
+        white-space: nowrap;
+    }
+
+    .login-button {
+        margin-left: auto;
+    }
+
+    .hero {
+        padding: 55px 22px;
+    }
+
+    .content {
+        padding: 35px 18px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to WEBEX!</h1>
-    <p>Our game platform is being built.</p>
+
+<header>
+
+    <div class="logo">
+        WEB<span>EX</span>
+    </div>
+
+    <nav>
+        <button onclick="showMessage('Games')">🎮 Games</button>
+        <button onclick="showMessage('Studio')">🛠️ Studio</button>
+        <button onclick="showMessage('Avatar')">👤 Avatar</button>
+        <button onclick="showMessage('Shop')">🛒 Shop</button>
+    </nav>
+
+    <button class="login-button" onclick="showMessage('Login')">
+        Log In
+    </button>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Make.<br>
+            Play.<br>
+            <span>WEBEX.</span>
+        </h1>
+
+        <p>
+            Play games made by the community,
+            create your own games, customize your avatar,
+            and build your own world.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="play-button"
+                    onclick="showMessage('Games')">
+                🎮 Play Games
+            </button>
+
+            <button class="studio-button"
+                    onclick="showMessage('Studio')">
+                🛠️ Open Studio
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="content">
+
+    <h2 class="section-title">
+        🎮 Featured Games
+    </h2>
+
+    <div class="games">
+
+        <div class="game-card">
+            <div class="game-image">
+                GAME 1
+            </div>
+            <div class="game-info">
+                <h3>Coming Soon</h3>
+                <p>Games created by WEBEX users.</p>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-image">
+                GAME 2
+            </div>
+            <div class="game-info">
+                <h3>Coming Soon</h3>
+                <p>Discover new games.</p>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-image">
+                GAME 3
+            </div>
+            <div class="game-info">
+                <h3>Coming Soon</h3>
+                <p>Play something new.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🛠️</div>
+            <h3>Create Games</h3>
+            <p>
+                Build your own games using the WEBEX Studio
+                and JavaScript.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">👤</div>
+            <h3>Your Avatar</h3>
+            <p>
+                Customize your own block-style WEBEX avatar.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>WebCoins</h3>
+            <p>
+                Earn and spend WebCoins on items and
+                other things throughout WEBEX.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌎</div>
+            <h3>Community</h3>
+            <p>
+                Play games and discover creations from
+                other WEBEX users.
+            </p>
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <strong>WEBEX</strong> — The community game platform.
+</footer>
+
+
+<script>
+
+function showMessage(page) {
+
+    alert(
+        page + " is coming soon!\n\n" +
+        "We're building WEBEX."
+    );
+
+}
+
+</script>
+
 </body>
 </html>
